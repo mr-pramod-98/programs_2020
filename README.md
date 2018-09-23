@@ -31,7 +31,7 @@ void main()
  {
   printf("%d%d,&f[i].n,&f[i].d");
  }
- SUM = sum_of_fractions(f[100],num);
+ SUM = sum_of_fractions(f,num);
  printf("sum=%d%d,SUM.n,SUM.d");
  getch();
 } 
