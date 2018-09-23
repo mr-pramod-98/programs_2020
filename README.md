@@ -34,5 +34,5 @@ void main()
  SUM = sum_of_fractions(f,num);
  printf("sum=%d%d,SUM.n,SUM.d");
  getch();
-} 
+ } 
  
