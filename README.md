@@ -4,7 +4,7 @@
 struct fraction
 {
  int n,d;
-}f[100];
+};
 
 struct sum_of_fraction(struct fraction a[],n)
 {
@@ -22,7 +22,7 @@ struct sum_of_fraction(struct fraction a[],n)
 void main()
 {
  int i,num;
- struct fraction SUM;
+ struct fraction SUM,f[100];
  clrscr();
  printf("enter number of fractions\n");
  scanf("%d,&num");
