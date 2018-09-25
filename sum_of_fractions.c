@@ -6,7 +6,7 @@ struct fraction
  int n,d;
 };
 
-struct fraction sum_of_fraction(struct fraction a[],n)
+struct fraction sum_of_fraction(struct fraction a[],int n)
 {
  int i;
  struct fraction sum;
@@ -25,14 +25,14 @@ void main()
  struct fraction SUM,f[100];
  clrscr();
  printf("enter number of fractions\n");
- scanf("%d,&num");
- printf("enter the fractions e.g(2 3)//2 is n and 3 is d");
+ scanf("%d",&num);
+ printf("enter the fractions e.g(2 3)//2 is n and 3 is d\n");
  for(i=0;i<num;i++)
  {
-  printf("%d%d,&f[i].n,&f[i].d");
+  printf("%d%d\n",f[i].n,f[i].d);
  }
- SUM = sum_of_fractions(f,num);
- printf("sum=%d%d,SUM.n,SUM.d");
+ SUM = sum_of_fraction(f,num);
+ printf("sum=%d/%d",SUM.n,SUM.d);
  getch();
  } 
  
