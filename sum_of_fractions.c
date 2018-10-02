@@ -17,6 +17,10 @@ struct fraction sum_of_fraction(struct fraction a[],int n)
   sum.n=((sum.n)*(a[i].d))+((sum.d)*(a[i].n));
   sum.d=(sum.d)*(a[i].d);
  }
+ if(sum.n==sum.d)
+ {
+  sum.d=sum.n=1;
+ }
  return sum;
 } 
 void main()
