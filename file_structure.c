@@ -28,6 +28,17 @@ NODE getnode(int frd)
    return newnode;   
 }
 
+void path(NODE ele)
+{
+    NODE p;
+    p=ele;
+    while(p->left!=NULL)
+        p=p->left;
+    if(p->headdir!=NULL)
+        path(p->headdir);
+    printf("/%s",ele->name);
+}  
+
 NODE search(NODE root,char scr[],NODE head,int *p)
 {
    NODE temp;
