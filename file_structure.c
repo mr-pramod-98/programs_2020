@@ -12,6 +12,7 @@ struct file
 };
 
 typedef struct file * NODE;
+NODE ele;
 
 NODE getnode(int frd)
 {
@@ -212,6 +213,7 @@ void main()
      char src[50];
      int s_done=0,ch;
      NODE root,newnode;
+     clrscr();
      root=(NODE)malloc(sizeof(struct file));
      root->left=root->right=NULL;
      root->dir=root->headdir=NULL;
