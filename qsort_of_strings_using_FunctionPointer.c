@@ -12,9 +12,9 @@ int compare(char s1,char s2)
 
 void swaping(char temp,char s1,char s2)
 {
- strcpy(s1,temp);
- strcpy(s2,s1);
- srtcpy(temp,s2);
+ strcpy(temp,s1);
+ strcpy(s1,s2);
+ srtcpy(s2,temp);
 }
 
 void qsort(char array_str[SIZE][20],int first,int last,int(*comp)(char s1,char s2),void(*swap)(char temp,char s1,char s2))
