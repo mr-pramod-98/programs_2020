@@ -17,20 +17,27 @@ node create(int i)
  return temp;
 }
 
-int comp_str(const void*a,const void*b)
+int comp_name(const void *a,const void *b) 
 {
- return strcmp(((struct student *)a->name),((node*)b->name));
+ node *x = (node *) a;
+ node *y = (node *) b;
+ return strcmp(x->name,y->name);
 }
 
-int comp_age(const void*a,const void*b)
+int comp_age(const void *a,const void *b) 
 {
- return ((struct student*)a->age)-((struct student*)b->age);
+ node *x = (node *) a;
+ node *y = (node *) b;
+ return x->age - y->age;
 }
 
-int comp_year(const void*a,const void*b)
+int comp_year(const void *a,const void *b) 
 {
- return ((struct student*)a->year)-((struct student*)b->year);
+ node *x = (node *) a;
+ node *y = (node *) b;
+ return x->year - y->year;
 }
+
 
 main()
 {
@@ -59,7 +66,7 @@ main()
 
   switch(opt)
   {
-   case 1: qsort(data,n,sizeof(node),comp_str);
+   case 1: qsort(data,n,sizeof(node),comp_name);
            printf("after sorting\n");
            printf("name\tage\tyear\n");
            for(i=0;i<n;i++)
@@ -92,5 +99,3 @@ main()
   }
  }
 }
-
-
