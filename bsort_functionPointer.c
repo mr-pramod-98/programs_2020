@@ -1,39 +1,58 @@
 #include<stdio.h>
-#include<string.h>
-#include<stdlib.h>
+	#include<string.h>
+	#include<stdlib.h>
  
-int compare(const void *a,const void *b) 
-{ 
-    return strcmp((char*)a,(char*)b);
-} 
+	int compare(const void *a,const void *b,int ch) 
+	{ 
+	    if(ch==1)
+	     {
+	      return *(double*)a-*(double*)b;
+	     }
+	 
+	     return strcmp((char*)a,(char*)b);
+	} 
 
-void BubbleSort(void *const a,int n,int size,int(*comp)(char *s1,char *s2))
- {
-    int i,j; 
-    char temp[10]; 
-    for (j=0; j<(n*size)-10; j=j+size) 
-    { 
-        for (i=j+10; i<(n*size); i=i+size) 
-        { 
-            if (compare((char*)(a+j),(char*)(a+i)) > 0) 
-            { 
-                strcpy(temp,(char*)(a+j)); 
-                strcpy((char*)(a+j),(char*)(a+i)); 
-                strcpy((char*)(a+i), temp); 
-            } 
-        } 
-    } 
- }
+	void BubbleSort(const void *a,int n,int size,int(*comp)(const void *s1,const void *s2),int ch)
+	 {
+	    int i,j;
+	    char temp[size];
+	    const void *temp1=&temp; 
+	    for (j=0; j<(n*size)-size; j=j+size) 
+	    { 
+		for (i=j+size; i<(n*size); i=i+size) 
+		{ 
+		    if ((compare((void*)(a+j),(void*)(a+i),ch) > 0)) 
+		    { 
+		        memcpy (temp1, (a+j), size);
+		        memcpy ((a+j), (a+i), size); 
+		        memcpy ((a+i), temp1, size); 
+		    }
+		} 
+	    } 
+	 }
 
-main()
-{
- char a[5][10]={"pramod","abhi","niranjan","manoj","prakash"};
- int i;
- printf("before sorting\n");
- for(i=0;i<5;i++)
-    puts(a[i]);
- BubbleSort(a,5,sizeof(a[0]),compare);
- printf("after sorting\n");
- for(i=0;i<5;i++)
-   puts(a[i]);
-}
+	main()
+	{
+		 double a[5]={20,12,6,5,30};
+		 char str[5][10]={"pramod","abhi","prakash","niranjan","manoj"};
+		 int i;
+ 
+ 		printf("before sorting\t");
+		 for(i=0;i<5;i++)
+		    printf("%f\t",a[i]);
+		 BubbleSort(a,5,sizeof(a[0]),compare,1);
+		 printf("\nafter sorting\t");
+		 for(i=0;i<5;i++)
+		   printf("%f\t",a[i]);
+
+		 printf("\n\nbefore sorting:\n");
+		 for(i=0;i<5;i++)
+		    puts(str[i]);
+		 BubbleSort(str,5,sizeof(str[0]),compare,2);
+		 printf("\nafter sorting\n");
+		 for(i=0;i<5;i++)
+		   puts(str[i]);
+          
+	}
+
+
